@@ -186,7 +186,7 @@ public class arvoreBinariaAVL {
     //Aparentemente esse cod nao retorna a autura certa dos nos filho da raiz
     public int alturaArvore(Node nodeTemp) {
         if (nodeTemp == null) {
-            return -1;//foram demasiadas horas para entender o real motivo por tras do -1, e realmente é uma sacada de mestre, porem me custou mt
+            return -1;
         }
 
         int esquerda = alturaArvore(nodeTemp.getEsquerda());
