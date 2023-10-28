@@ -1,4 +1,5 @@
 public class Node {
+    //Classe Node Default implementada normalmente
     private int data;
     private Node nextNode;
 

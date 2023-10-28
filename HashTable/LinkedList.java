@@ -53,7 +53,7 @@ public class LinkedList {
         }
     }
 
-    public String displayData(){
+    public String dataTableConsole(){
         String ret = "";
         Node aux = this.head;
         while (null != aux){
