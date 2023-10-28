@@ -1,16 +1,17 @@
 import java.util.Random;
 
 public class geraRandomSeed {
-
+    Random random;
 
     private  long SEED;
     public  geraRandomSeed(long SEED){
         this.SEED = SEED;
+        this.random = new Random(SEED);
 
     }
 
     public  int randonInt() {
-        Random random = new Random(SEED);
+
         int n = 0;
         n = random.nextInt();
         while ((n > 1000000) || (n < 0)) {
