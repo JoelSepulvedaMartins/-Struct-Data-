@@ -57,7 +57,7 @@ public class LinkedList {
         String ret = "";
         Node aux = this.head;
         while (null != aux){
-            ret += aux.getData() + ", ";
+            ret += "/--->(*)" + aux.getData()  ;
             aux = aux.getNextNode();
         }
         return ret;

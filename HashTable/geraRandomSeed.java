@@ -1,30 +1,32 @@
 import java.util.Random;
 
 public class geraRandomSeed {
-    Random random;
+    private Random random;
+    private long SEED;
 
-    private  long SEED;
-    public  geraRandomSeed(long SEED){
+    public geraRandomSeed(long SEED) {
         this.SEED = SEED;
         this.random = new Random(SEED);
-
     }
 
-    public  int randonInt() {
+    public int randomInt() {
+        int minDigits = 1; // Quantidade mínima de dígitos
+        int maxDigits = 9; // Quantidade máxima de dígitos
 
-        int n = 0;
-        n = random.nextInt();
-        while ((n > 1000000) || (n < 0)) {
-            if (0 > n) {
-                n *= -1;
-            } else if (10000000 <= n) {
-                n /= 10000;
-            } else if (1000000 <= n) {
-                n /= 49;
-            }
+        int numDigits = random.nextInt(maxDigits - minDigits + 1) + minDigits;
+
+        int minBound = 1;
+        int maxBound = 10;
+
+        for (int i = 1; i < numDigits; i++) {
+            minBound *= 10;
+            maxBound = maxBound * 10 + 9;
+        }
+
+        int n = minBound + random.nextInt(maxBound - minBound + 1);
+        if (n < 0) {
+            n = -n;
         }
         return n;
     }
-
-
 }

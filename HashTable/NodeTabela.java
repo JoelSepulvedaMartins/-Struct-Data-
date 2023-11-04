@@ -55,15 +55,12 @@ public class NodeTabela {
 
 
 
-
     public NodeTabela(){
 
         this.data = -1;
         this.lista = null;
 
     }
-
-
 
 
 
@@ -78,8 +75,8 @@ public class NodeTabela {
 
     public String dataTableConsole() {
 
-        String retorno = "";
-        retorno += this.data + ", ";
+        String retorno = "/";
+        retorno += this.data + "/";
         if (null != this.lista) retorno += this.lista.dataTableConsole();
 
 
