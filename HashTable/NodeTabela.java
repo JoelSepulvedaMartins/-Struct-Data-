@@ -1,85 +1,66 @@
 public class NodeTabela {
     private int data;
     private LinkedList lista;
-
-
-
-
-    //Insert Elementos Linked Colisao
-    public int Insert(int data){
-
-        if (-1 == this.data){
+    private boolean Rehashed;
+    public int Insert(int data) {
+        if (this.data == -1) {
             this.data = data;
             return 0;
         }
 
-        if(null == this.lista){
+        if (this.lista == null) {
             this.lista = new LinkedList();
         }
 
         this.lista.insertNode(data);
 
-
         return -1;
     }
 
 
-    //Remove Elementos Linked Colisao
+    public boolean isRehashed() {
+        return Rehashed;
+    }
+
+    public void setRehashed(boolean rehashed) {
+        Rehashed = rehashed;
+    }
+
     public int Remove(int data) {
-
-        if(this.data == data){
-
+        if (this.data == data) {
             int auxData = this.data;
             Node headLista = this.lista.getHead();
             this.data = headLista.getData();
             this.lista.removeHead();
             return auxData;
-
         }
 
-        this.lista.remove(data);
-        int auxData = 0;
+        int removedData = this.lista.remove(data);
 
-
-        return auxData;
+        return removedData;
     }
 
-
-    //Metodos Da Classe geter's Seter's
-
-    public int getData(){
-
+    public int getData() {
         return this.data;
-
     }
 
-
-
-    public NodeTabela(){
-
+    public NodeTabela() {
         this.data = -1;
         this.lista = null;
-
     }
 
-
-
-    public LinkedList getLista(){
+    public LinkedList getLista() {
         return this.lista;
     }
 
-
-
-
-    //Printar Table
-
     public String dataTableConsole() {
+        StringBuilder retorno = new StringBuilder("/");
+        retorno.append(this.data).append("/");
 
-        String retorno = "/";
-        retorno += this.data + "/";
-        if (null != this.lista) retorno += this.lista.dataTableConsole();
+        if (this.lista != null) {
+            retorno.append(this.lista.dataTableConsole());
+        }
 
-
-        return retorno;
+        return retorno.toString();
     }
 }

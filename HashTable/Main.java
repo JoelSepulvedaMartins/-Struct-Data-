@@ -11,8 +11,8 @@ public class Main {
     private static void setFactor(int choice, Scanner scan, HashTable table) {
         double pi = 3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117067982148086513282306647093844609550582231725359408128481;
         if (choice == 1){
-                table.setFactorHash(pi);
-             }
+            table.setFactorHash(pi);
+        }
         else if (choice == 2) {table.setFactorHash(0.5);}
         else if (choice == 3) {table.setFactorHash(0.7);}
         else if (choice == 4) {table.setFactorHash(0.8);}
@@ -61,9 +61,9 @@ public class Main {
             case 3:
                 table = new HashTable(aux, HashTable.HashAlgorithm.FactorOtimizado);
 
-                System.out.println("Defina o Fator usado:(Default == Constante Empírica(TabelasMédias))\n1.Numero pi(TestePessoal)\n2.0,5(Recomendado Tabelas Pequenas)\n3.0,7(Recomendado Tabelas Grandes)\n4.0,8(Recomendado Tabelas Grandes)\n5.Informe o fator(double): ");
+                /*System.out.println("Defina o Fator usado:(Default == Constante Empírica(TabelasMédias))\n1.Numero pi(TestePessoal)\n2.0,5(Recomendado Tabelas Pequenas)\n3.0,7(Recomendado Tabelas Grandes)\n4.0,8(Recomendado Tabelas Grandes)\n5.Informe o fator(double): ");
                 choice = scan.nextInt();
-                setFactor(choice, scan, table);
+                setFactor(choice, scan, table);*/
 
                 break;
             case 4:
@@ -97,7 +97,7 @@ public class Main {
 
         }
 
-
+        System.out.println("80% Do tamanho da tabela é inserido em elementos aleatorios");
         System.out.println("------Tempo Criacao Tabela-------> "+ (end-start)+" Milisegundos.");
 
         System.out.println("------Tamanho Tabela Final-------> " + table.getTamanho());

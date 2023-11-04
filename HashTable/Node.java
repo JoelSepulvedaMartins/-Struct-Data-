@@ -1,32 +1,38 @@
 public class Node {
-    //Classe Node Default implementada normalmente
     private int data;
     private Node nextNode;
-
-    public Node(int data){
+    private boolean Rehashed;
+    public Node(int data) {
         this.data = data;
         this.nextNode = null;
     }
 
-    public Node(Node node){
+    public Node(Node node) {
         this.data = node.getData();
         this.nextNode = node.getNextNode();
     }
 
-    public Node getNextNode(){
+    public boolean getRehashed() {
+        return Rehashed;
+    }
+
+    public void setRehashed(boolean rehashed) {
+        Rehashed = rehashed;
+    }
+
+    public Node getNextNode() {
         return this.nextNode;
     }
 
-    public int getData(){
+    public int getData() {
         return this.data;
     }
 
-    public void setData(int data){
+    public void setData(int data) {
         this.data = data;
     }
 
-    public void setNextNode(Node nextNode){
+    public void setNextNode(Node nextNode) {
         this.nextNode = nextNode;
     }
-
 }
