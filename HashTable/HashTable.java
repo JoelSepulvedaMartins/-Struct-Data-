@@ -9,6 +9,12 @@ public class HashTable {
     private int tempHash;
     private HashAlgorithm hashAlgorithm;
 
+    private double loadFactorThreshold = 0.7; // Limite fator de carga
+    private int maxRehashes = 1; //limite rehashings
+
+    private int numElements = 0; //count elementos na tabela
+    private int numRehashes = 0; // count de rehashings adicionais feitos
+
 
     //Construtores
 
@@ -222,6 +228,17 @@ public class HashTable {
         if (0 != this.tabela[posicao].Insert(data)){
             this.colisoes++;
         }
+
+        if (numRehashes < maxRehashes && (double) (numElements + 1) / tamanho > loadFactorThreshold) {
+            // rehashing adicional quando o fator de carga passar do limite devfinido
+            posicao = significantBitHash(data);//usa outro hash como rehashing, da pra usar o mesmo padrao tambem
+            this.tabela[posicao].setRehashed(true);
+            this.numRehashes++;
+            addElement(data); //insere o elemento depois do  rehashing
+        }
+        this.numRehashes = 0;
+
+
     }
 
 

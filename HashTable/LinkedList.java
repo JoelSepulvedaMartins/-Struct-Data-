@@ -1,54 +1,68 @@
 public class LinkedList {
     private Node head;
+    private Node tail;
 
-    public LinkedList(){
+    public LinkedList() {
         this.head = null;
-    }
-    public LinkedList(Node node){
-        this.head = node;
-    }
-    public LinkedList(int data){
-        new LinkedList(new Node(data));
+        this.tail = null;
     }
 
-    public void insertNode(int data){
-        insertNode(new Node(data));
-    }
-
-    public void insertNode(Node newNode){
-        if (null == this.head){
-            this.head = newNode;
-        }else{
-            Node auxNode = this.head;
-            while (null != auxNode.getNextNode()){
-                auxNode = auxNode.getNextNode();
-            }
-            auxNode.setNextNode(newNode);
-        }
-
-    }
-
-    public Node getHead(){
+    public Node getHead() {
         return this.head;
     }
 
-    public int removeHead(){
-        int retorno = this.head.getData();
-        this.head = this.head.getNextNode();
+    public void insertNode(int data) {
+        insertNode(new Node(data));
+    }
+
+    public void insertNode(Node newNode) {
+        if (head == null) {
+            head = newNode;
+            tail = newNode;
+        } else {
+            tail.setNextNode(newNode);
+            tail = newNode;
+        }
+    }
+
+    public int removeHead() {
+        if (head == null) {
+            return -1; //list empty
+        }
+        int retorno = head.getData();
+        head = head.getNextNode();
+        if (head == null) {
+            tail = null;
+        }
         return retorno;
     }
 
-    public int remove(int data){
-        if (this.head.getData() == data){
+    public int remove(int data) {
+        if (head == null) {
+            return -1; // list empty
+        }
+
+        if (head.getData() == data) {
             return removeHead();
-        }else{
-            Node paiAux = null;
-            Node aux = this.head.getNextNode();
-            while((null != aux) || (data != aux.getData())){
+        } else {
+            Node paiAux = head;
+            Node aux = head.getNextNode();
+
+            while (aux != null && aux.getData() != data) {
                 paiAux = aux;
                 aux = aux.getNextNode();
             }
+
+            if (aux == null) {
+                return -1; //elemento nao encontrado
+            }
+
             paiAux.setNextNode(aux.getNextNode());
+
+            if (aux == tail) {
+                tail = paiAux;
+            }
+
             return aux.getData();
         }
     }
@@ -62,6 +76,4 @@ public class LinkedList {
         }
         return ret;
     }
-
-
 }
