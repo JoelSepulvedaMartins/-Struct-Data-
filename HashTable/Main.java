@@ -61,9 +61,9 @@ public class Main {
             case 3:
                 table = new HashTable(aux, HashTable.HashAlgorithm.FactorOtimizado);
 
-                /*System.out.println("Defina o Fator usado:(Default == Constante Empírica(TabelasMédias))\n1.Numero pi(TestePessoal)\n2.0,5(Recomendado Tabelas Pequenas)\n3.0,7(Recomendado Tabelas Grandes)\n4.0,8(Recomendado Tabelas Grandes)\n5.Informe o fator(double): ");
+                System.out.println("Defina o Fator usado:(Default == Constante Empírica(TabelasMédias))\n1.Numero pi(TestePessoal)\n2.0,5(Recomendado Tabelas Pequenas)\n3.0,7(Recomendado Tabelas Grandes)\n4.0,8(Recomendado Tabelas Grandes)\n5.Informe o fator(double): ");
                 choice = scan.nextInt();
-                setFactor(choice, scan, table);*/
+                setFactor(choice, scan, table);
 
                 break;
             case 4:
